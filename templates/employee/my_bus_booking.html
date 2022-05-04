@@ -1,0 +1,66 @@
+{% extends 'employee/base.html' %}
+{% load static %}
+{% block content %}
+<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/16.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Bus Bookings</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">My Bookings</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <div class="roberto-contact-form-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+                        <h2></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Form -->
+                    <div class="roberto-contact-form">
+                        <table class="table table-bordered table-striped table-hover">
+                        <th class="info">Bus Name</th>
+                        <th class="info">Customer Name</th>
+                        <th class="info">Customer contact</th>
+                        <th class="info">Departure </th>
+                        <th class="info">Destination </th>
+                        <th class="info">Departure Time</th>
+                        <th class="info">Arrival Time</th>
+                        <th class="info">Date</th>
+                        <th class="info">Seat</th>
+                        {% for bus_booking in bus_booking  %}
+                        <tr>
+                            <td>{{ bus_booking.bus.company}}</td>
+                            <td>{{ bus_booking.user.user.first_name}}</td>
+                            <td>{{ bus_booking.user.contact}}</td>
+                            <td>{{ bus_booking.bus.dept_place}}</td>
+                            <td>{{ bus_booking.bus.dest_place}}</td>
+                            <td>{{ bus_booking.bus.dep_time}}</td>
+                            <td>{{ bus_booking.bus.arrival_time}}</td>
+                            <td>{{ bus_booking.date}}</td>
+                            <td>{{ bus_booking.seat}}</td>
+                        </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  {% endblock %}

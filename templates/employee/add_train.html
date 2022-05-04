@@ -1,0 +1,101 @@
+{% extends 'employee/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/16.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Add Train</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="../admin/index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Train</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="roberto-contact-form-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+                        <h2></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Form -->
+                    <div class="roberto-contact-form">
+                        <form  method="post">
+                            <h1 style=" margin-left: 400px">Train Details</h1>
+
+                            {% csrf_token %}
+                            <div class="row">
+
+                                 <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+
+                                    <select class="form-control mb-30" name="type" required>
+                                        <option selected="selected" value="">Select Category</option>
+                                        <option  value="Express">Express</option>
+                                        <option value="Domestic">Super Fast</option>
+                                        <option value="International">Passenger</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="text" name="name" class="form-control mb-30" placeholder=" Train Name" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="text" name="dep_place" class="form-control mb-30" placeholder=" Departure Place" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="text" name="dest_place" class="form-control mb-30" placeholder=" Destination Place" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <label> Departure Time</label>
+                                    <input type="time" name="dep_time" class="form-control mb-30" placeholder=" Departure Time" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <label>Arrival Time</label>
+                                    <input type="time" name="arrival_time" class="form-control mb-30" placeholder=" Arrival Time" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="number" name="ac_fare" class="form-control mb-30" placeholder="A/C Fare (Rs)" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="number" name="sleeper_fare" class="form-control mb-30" placeholder="Sleeper Class Fare(Rs)" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="number" name="first_fare" class="form-control mb-30" placeholder="1 st Class Fare" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="number" name="second_fare" class="form-control mb-30" placeholder="2 nd Class Fare" required>
+                                </div>
+
+                                <div class="col-12 text-center wow fadeInUp" data-wow-delay="100ms">
+                                    <button type="submit" class="btn roberto-btn mt-15">Add</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

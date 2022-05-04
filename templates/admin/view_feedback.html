@@ -1,0 +1,54 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/16.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">feedback</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">feedback</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <div class="roberto-rooms-area section-padding-100-0">
+        <div class="container">
+             <div class="row">
+                <div class="col-12">
+                    <!-- Form -->
+                    <div class="roberto-contact-form">
+                        <table class="table table-bordered table-striped table-hover">
+
+                        <th class="info">NAME</th>
+                        <th class="info">PHONE</th>
+                        <th class="info">COMPLAINT</th>
+{#                        <th class="info">ACTION</th>#}
+                        {% for i in feed  %}
+                        <tr>
+                            <td>{{ i.user.user.first_name}}</td>
+                            <td>{{ i.user.contact}}</td>
+                            <td>{{ i.feedback}}</td>
+
+{#                            <td><a href="remove_complaint?id={{ i.id}}" class=" btn btn-danger">Remove</a></td>#}
+
+                        </tr>
+                            {% endfor %}
+                        </table>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,82 @@
+
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+        {% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/16.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">FEEDBACK</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">FEEDBACK</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+<div class="hotel-search-form-area">
+            <div class="container-fluid">
+                <div >
+                     <h5>ADD FEEDBACK</h5>
+                    <form  style="width: 50%" method="post">
+                        {% csrf_token %}
+
+
+                                <input type="text" class="form-control" id="checkIn" name="feedback" required>
+                        <br>
+
+
+
+
+
+                                <button type="submit" class="form-control btn roberto-btn w-100">ADD FEEDBACK</button>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    <div class="roberto-rooms-area section-padding-100-0">
+        <div class="container">
+             <div class="row">
+                <div class="col-12">
+                    <!-- Form -->
+                    <div class="roberto-contact-form">
+                        <table class="table table-bordered table-striped table-hover">
+
+                        <th class="info">FEEDBACK</th>
+                        <th class="info">ACTION</th>
+                        {% for i in feed  %}
+                        <tr>
+
+                            <td>{{ i.feedback}}</td>
+
+                            <td><a href="remove_complaint?id={{ i.id}}" class=" btn btn-danger">Remove</a></td>
+
+                        </tr>
+
+                            {% endfor %}
+                        </table>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+  {% endblock %}

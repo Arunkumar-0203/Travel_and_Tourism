@@ -1,0 +1,66 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/16.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Employee List</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Employee List</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="roberto-contact-form-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+                        <h2></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Form -->
+                    <div class="roberto-contact-form">
+                        <table class="table table-bordered table-striped table-hover">
+
+                        <th class="info">Employee Name</th>
+                        <th class="info">Email</th>
+                        <th class="info">Contact Number</th>
+                        <th class="info">Company</th>
+                        <th class="info">Remove</th>
+                        {% for employee in employee  %}
+                        <tr>
+                            <td>{{ employee.user.first_name}}</td>
+                            <td>{{ employee.user.email}}</td>
+                            <td>{{ employee.contact}}</td>
+                            <td>{{ employee.company}}</td>
+                            <td><a href="reject?id={{ employee.id}}" class=" btn btn-danger">Remove</a></td>
+
+                        </tr>
+
+                            {% endfor %}
+                        </table>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

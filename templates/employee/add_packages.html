@@ -1,0 +1,112 @@
+{% extends 'employee/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/16.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Add Packages</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Packages</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="roberto-contact-form-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+                        <h2></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Form -->
+                    <div class="roberto-contact-form">
+                        <form  method="post" enctype="multipart/form-data">
+                            <h1 style=" margin-left: 400px">Package Details</h1>
+                            {% csrf_token %}
+                            <div class="row">
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <select class="form-control mb-30" name="type" required>
+                                        <option selected="selected" value="">Select Package Type</option>
+                                        <option value="International">International</option>
+                                        <option value="Domestic">Domestic</option>
+
+                                    </select>
+                                </div>
+                                 <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="text" name="name" class="form-control mb-30" placeholder="Package Name" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="number" name="day" class="form-control mb-30" placeholder="No of Days" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="number" name="night" class="form-control mb-30" placeholder="No of Nights" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <label>Upload an Image</label>
+                                    <input type="file" name="image" class="form-control mb-30" placeholder="" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="text" name="inclusions" class="form-control mb-30" placeholder=" Package Inclusions" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="text" name="exclusions" class="form-control mb-30" placeholder="Package Exclusions" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="text" name="amount" class="form-control mb-30" placeholder="Package Amount (Rs)" required>
+                                </div>
+                                 <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                 <h6>Select Guide</h6>
+                                    <select style="background-color:white" class="form-control"  name="guides" id="PLACE" required="required" onchange="show_dis(this.value,0)" >
+                                     <option  value="null">---Select---</option>
+                                        {% for i in Guide %}
+                                     <option value="{{ i.id }}">{{ i.user.first_name }}</option>
+                                     {% endfor %}
+
+                                    </select>
+                                </div>
+                               <br>
+                                <br>
+
+                                <br>
+                                <br>
+                                <div class="col-12 col-lg-12 wow fadeInUp" data-wow-delay="100ms">
+                                    <textarea class="form-control mb-30" name="food" placeholder="Food Details"></textarea>
+                                </div>
+
+                                <div class="col-12 col-lg-12 wow fadeInUp" data-wow-delay="100ms">
+                                    <textarea class="form-control mb-30" name="details" placeholder="Package Details"></textarea>
+                                </div>
+
+
+                                <div class="col-12 text-center wow fadeInUp" data-wow-delay="100ms">
+                                    <button type="submit" class="btn roberto-btn mt-15">Add</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'employee/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/16.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Add Bus</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="../admin/index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Bus</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="roberto-contact-form-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+                        <h2></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Form -->
+                    <div class="roberto-contact-form">
+                        <form  method="post" enctype="multipart/form-data">
+                            <h1 style=" margin-left: 400px">Bus Details</h1>
+                            {% csrf_token %}
+                            <div class="row">
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="text" name="name" class="form-control mb-30" placeholder="Bus Name" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="text" name="company" class="form-control mb-30" placeholder=" Company Name" required>
+                                </div>
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="text" name="dep_place" class="form-control mb-30" placeholder=" Departure Place" required>
+                                </div>
+
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="text" name="dest_place" class="form-control mb-30" placeholder=" Destination Place" required>
+                                </div>
+
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <label> Departure Time</label>
+                                    <input type="time" name="dep_time" class="form-control mb-30" placeholder=" Departure Time" required>
+                                </div>
+
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <label>Arrival Time</label>
+                                    <input type="time" name="arrival_time" class="form-control mb-30" placeholder=" Arrival Time" required>
+                                </div>
+
+
+                                <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                    <input type="number" name="seats" class="form-control mb-30" placeholder="No Of Seats" required>
+                                </div>
+
+                                 <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+                                     <input type="number" name="fare" class="form-control mb-30" placeholder="Fare (Rs)" required>
+                                 </div>
+
+                                 <div class="col-12 col-lg-12 wow fadeInUp" data-wow-delay="100ms">
+                                     <label>Upload Seat Map</label>
+                                     <input type="file" name="seat_map" class="form-control mb-30" placeholder="Fare (Rs)" required>
+                                 </div>
+
+                                <div class="col-12 text-center wow fadeInUp" data-wow-delay="100ms">
+                                    <button type="submit" class="btn roberto-btn mt-15">Add</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

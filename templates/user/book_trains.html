@@ -1,0 +1,129 @@
+ {% extends 'user/base.html' %}
+{% load static %}
+ {% block content %}
+ <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/16.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-end">
+                <div class="col-12">
+                    <div class="breadcrumb-content d-flex align-items-center justify-content-between pb-5">
+                        <h2 class="room-title">{{ train.name }}</h2>
+                        <h2 class="room-price">Train / <span>Booking</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Area End -->
+
+    <!-- Rooms Area Start -->
+    <div class="roberto-rooms-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <!-- Single Room Details Area -->
+                    <div class="single-room-details-area mb-50">
+                        <!-- Room Thumbnail Slides -->
+                        <div class="room-thumbnail-slides mb-50">
+                            <div id="room-thumbnail--slide" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{% static 'img/train.png' %}" width="400px" height="400px" alt="">
+                                    </div>
+
+                                </div>
+
+                                <ol class="carousel-indicators">
+                                    <li data-target="#room-thumbnail--slide" data-slide-to="0" class="active">
+                                        <img src="img/bg-img/48.jpg" class="d-block w-100" alt="">
+                                    </li>
+
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- Room Features -->
+                        <div class="room-features-area d-flex flex-wrap mb-50">
+                            <h6>Departure: <span>{{ train.dep_place }}</span></h6>
+                            <h6>Destination: <span>{{ train.dest_place }}</span></h6>
+                            <h6>Departure Time: <span>{{ train.dep_time }}</span></h6>
+                            <h6>Arrival Time: <span>{{ train.arrival_time }}</span></h6>
+                        </div>
+                        <h2>{{ flight.flight_class }}</h2>
+                        <h5>A/C Class: <span class="fa fa-rupee"></span>{{ train.ac_fare }}</h5>
+                        <h5>First Class: <span class="fa fa-rupee"></span>{{ train.first_fare }}</h5>
+                        <h5>Second Class: <span class="fa fa-rupee"></span>{{ train.second_fare }}</h5>
+                        <h5>Sleeper class: <span class="fa fa-rupee"></span>{{ train.sleeper_fare }}</h5>
+                        <p>{{ flight.details }}</p>
+                        <ul>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Room Service -->
+                    <div class="room-service mb-50">
+
+                        <ul>
+
+                        </ul>
+                    </div>
+
+                    <!-- Room Review -->
+
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <!-- Hotel Reservation Area -->
+                    <div class="hotel-reservation--area mb-100">
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                            <div class="form-group mb-30">
+                                <label for="checkInDate">Date</label>
+                                <div class="input-daterange" id="datepicker">
+                                    <div class="row no-gutters">
+                                        <div class="col-12">
+                                            <input type="date" class="input-small form-control" name="date" placeholder="Check In" required>
+                                        </div>
+                                            <input type="hidden" name="id" value="{{ train.id }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-30">
+                                <label for="guests">Select Compartment Class</label>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <select class="input-small form-control" name="class" required>
+                                            <option selected="selected" value="" >Select Class</option>
+                                            <option >A/C Class</option>
+                                            <option >First Class</option>
+                                            <option >Second Class</option>
+                                            <option  >Sleeper class</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group mb-30">
+                                <label for="guests">Enter Number of seats</label>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input class="input-small form-control" type="number" name="seats" required>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group mb-50">
+                                <div class="slider-range">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn roberto-btn w-100">Book Ticket</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  {% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block content %}
+        <div style="height: 600px;background-image: url({% static 'img/admin.jpg' %});background-size: 1600PX 600PX">
+{##}
+{#<center> <h1 style=" color: white;padding-top: 250px;font-size: 60px">Travel And Tourism</h1>#}
+{#    <p>“TRAVEL DOESN'T BECOME ADVENTURE UNTIL YOU LEAVE YOURSELF BEHIND”</p>#}
+{#</center>#}
+
+        </div>
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+{% endblock %}

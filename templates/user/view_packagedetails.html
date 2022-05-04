@@ -1,0 +1,61 @@
+
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/16.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2 class="page-title">Packages</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="../admin/index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Packages</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="roberto-rooms-area section-padding-100-0">
+        <div class="container">
+             <div class="row">
+                <div class="col-12">
+                    <!-- Form -->
+                    <div class="roberto-contact-form">
+                        <table class="table table-bordered table-striped table-hover">
+
+                        <th class="info">Image</th>
+                        <th class="info">Package name</th>
+                        <th class="info">Guide</th>
+                        <th class="info">Guide phone</th>
+                        <th class="info">food details</th>
+                        <th class="info">details</th>
+                        {% for i in package  %}
+                        <tr>
+                            <td><img height="100px" width="100px" src="{{ i.image.url }}" alt=""></td>
+                            <td>{{ i.name}}</td>
+                            <td>{{ i.guides.user.first_name}}</td>
+                            <td>{{  i.guides.contact}}</td>
+                            <td>{{  i.food}}</td>
+                            <td>{{  i.details}}</td>
+{#                            <td><a href="reject?id={{ employee.user_id}}" class=" btn btn-danger">Remove</a></td>#}
+
+                        </tr>
+
+                            {% endfor %}
+                        </table>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+  {% endblock %}
